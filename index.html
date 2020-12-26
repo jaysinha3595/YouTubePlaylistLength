@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Youtube Playlist Manager</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+
+    <style>
+      body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logo{
+    margin-left: 2rem;
+    margin-top: 2rem;
+    position: absolute;
+    display: inline-block;
+}
+
+.logo-container{
+    display: inline-block;
+}
+
+.heading{
+    letter-spacing: .5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #fff, #c1d0d8);
+    -webkit-background-clip: text;
+    color: transparent;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 2rem;
+
+}
+
+.search-container{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    width: 60%;
+    text-align: center;
+}
+
+.search-form-home{
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.search-input-home{
+    width: 60%;
+    padding: 1rem 2rem;
+    transition: all .1s linear;
+    border: none;
+    border-radius: 4px;
+}
+.search-input-home:focus{
+    width: 65%;
+    border: none;
+}
+
+.search-btn-home{
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #045762;
+    padding: 1rem 2rem;
+    width: 20%;
+    border-radius: 4px;
+    transition: .2s all;
+    cursor: pointer;
+}
+
+.search-btn-home:hover{
+    background-color: #fff;
+    color: #045762;
+}
+
+.search-btn-home:active{
+    border: 1px solid #fff;
+    background-color: #045762;
+    color: #fff;
+}
+
+
+.hints{
+    text-align: left;
+    list-style: none;
+    color: rgb(231, 229, 229);
+    font-size: .8rem;
+    display: none;
+}
+
+#particles-js {
+    position: relative;
+    background: #045762;
+    height: 100vh;
+    font-size: 170%;
+
+}
+
+#loader{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  display: none;
+}
+#loader h3{
+  display: inline-block;
+  background-image: linear-gradient(to right, orange, orangered);
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  border-radius: 4px;
+  font-size: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+#loader h3 span{
+  position: absolute;
+  top: 80%;
+  left: 0;
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(90deg, orangered, orange);
+  animation: loaderAni 1s linear infinite;
+}
+
+@keyframes loaderAni {
+  0%{
+    left: -100%;
+  }
+  100%{
+    left: 100%;
+  }
+  
+}
+
+    </style>
+
+
+    <div id="particles-js"> 
+        <header>
+                <a href="" onclick="window.location.reload()" class="logo">
+                    <svg width="36" height="36" viewBox="0 0 151 174" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.95" fill-rule="evenodd" clip-rule="evenodd" d="M150.603 86.6025L0.602541 0V23.4978L130.814 98.0273L150.603 86.6025ZM125.803 100.92L0.602541 29.2589L0.602539 173.205L125.803 100.92Z" fill="#fff"/>
+                    </svg>
+                </a>
+        </header>
+        <div class="search-container">
+                <h1 class="heading">Playlist-ER</h1>
+                <form class="search-form-home">
+                    <input type="text" class="search-input-home" placeholder="www.youtube.com/playlist?list=PLBlnK6fEyqRiVhbXDGLXDk">
+                </form>
+                <button class="search-btn-home" type="submit">Search</button>
+                <ul class="hints">
+                    <li>Playlist ID</li>
+                    <li>Link to the playlist</li>
+                    <li>Link to any video of the playlist</li>
+                </ul>
+        </div> 
+    </div> 
+    <script src= 
+      "../node_modules/particles.js/particles.js"> 
+    </script> 
+    <script src= 
+      "../node_modules/particles.js/demo/js/app.js"> 
+      </script>
+
+
+    
+    <div class="container" style="display: none;">
+      <header class="header">
+
+        <div class="logo-container">
+          <a href="" onclick="window.location.reload()">
+            <svg width="24" height="24" viewBox="0 0 151 174" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.95" fill-rule="evenodd" clip-rule="evenodd" d="M150.603 86.6025L0.602541 0V23.4978L130.814 98.0273L150.603 86.6025ZM125.803 100.92L0.602541 29.2589L0.602539 173.205L125.803 100.92Z" fill="#fff"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="form-container">
+          <form action="#" class="search-form">
+            <input type="text" class="search-input" placeholder="Paste Link Here" />
+            <button class="search-btn">Search</button>
+          </form>
+        </div>
+
+        <div class="cta-container">
+          <div class="cta-logo-container">
+            
+          </div>
+        </div>
+
+      </header>
+
+      <div id="loader">
+        <h3>Loading...
+          <span></span>
+        </h3>
+      </div>
+
+      <main class="main">
+        <div class="side-panel">
+          <div class="hero">
+            <table class="dur-main">
+              <tr>
+                <td class="lg"><p class="nov1">No of Videos:</p><span></span></td>
+                <td><p class="nov2">&nbsp;</p></td>
+              </tr>
+              <tr>
+                <td class="lg"><p class="td1">Total Duration:</p><span></span></td>
+                <td><p class="td2">&nbsp;</p></td>
+              </tr>
+            </table>
+          </div>
+          <div class="speed-main">
+            <table>
+              <tr class="speed-ctrl">
+                <td>Duration At:</td>
+                <td>1.25x</td>
+                <td>1.5x</td>
+                <td>1.75x</td>
+                <td>2x</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="speed-sec">
+            <p class="td3"></p>
+          </div>
+          
+          <div class="adv-search">
+                <p class="adv-form-title">Search<span></span></p>
+                <div class="adv-form">
+                  <label for="from">From</label>
+                  <input type="number" class="from">
+                  <label for="to">To</label>
+                  <input type="number" class="to">
+                  <button class="adv-btn">Calculate</button>
+                </div>
+          </div>
+        </div>
+
+        <div class="main-panel">
+          <div class="list-container">
+            <table class="playlist">
+              <!-- <tr class="t-head">
+                <th>
+                  <input type="checkbox" class="sd-all">
+                </th>
+                <th>SI</th>
+                <th>Title</th>
+                <th>Length</th> 
+              </tr> -->
+              <!-- <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>Introduction to Algorithms</td>
+                <td>4h 35m 12s</td>
+              </tr> -->
+            </table>
+          </div>
+      </main>
+    </div>
+    <footer class="footer">
+      <p>Made with love in Bihar</p>
+    </footer>
+
+    <script src="./js/bundle.js"></script>
+  </body>
+</html>
